@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+const repo = 'https://github.com/osvanta/bus-log-analyzer';
+---
+<Base title="Licences" description="Licence of Osvanta Bus Log Analyzer and of the third-party software it uses.">
+  <div class="prose">
+    <h1>Licences</h1>
+
+    <h2>Osvanta Bus Log Analyzer</h2>
+    <p>
+      The application's source code is published under the
+      <a href={`${repo}/blob/main/LICENSE`}>Mozilla Public License 2.0</a> (MPL-2.0). You may use
+      it for any purpose, including commercially, at no cost.
+    </p>
+
+    <h2>Third-party software</h2>
+    <p>
+      The application is built with open-source libraries, among them Python, Qt for Python
+      (PySide6), pyqtgraph, NumPy, pandas, asammdf, cantools, canmatrix, python-can and ldfparser.
+    </p>
+    <ul>
+      <li>
+        <a href={`${repo}/blob/main/THIRD_PARTY_NOTICES.md`}>Third-party notices</a>: every library
+        shipped, with its version and licence.
+      </li>
+      <li>
+        <a href={`${repo}/tree/main/licenses`}>Licence texts</a>, also in the
+        <code>licenses</code> folder of each download.
+      </li>
+    </ul>
+
+    <h2>Names and trademarks</h2>
+    <p>
+      Names of third-party products, tools and file formats on this site are used only to say what
+      the application can read and write, and may be trademarks of their owners. Osvanta is not
+      affiliated with, or endorsed by, those owners.
+    </p>
+
+    <h2>This website</h2>
+    <p>
+      The text and images of this website are &copy; Osvanta. The screenshots show a made-up demo
+      vehicle, not real data.
+    </p>
+  </div>
+</Base>

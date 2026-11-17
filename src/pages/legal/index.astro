@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+
+// Owner to supply before this page is published. While either is empty the
+// page shows a "being completed" notice instead of an operator block.
+const company = '';
+const address = '';
+const complete = company !== '' && address !== '';
+---
+<Base title="Legal notice" description="Who operates osvanta.com, and the terms the website is offered under.">
+  <div class="prose">
+    <h1>Legal notice</h1>
+
+    <h2>Operator</h2>
+    {complete ? (
+      <p>
+        {company}<br />
+        {address}<br />
+        India<br />
+        <a href="mailto:support@osvanta.com">support@osvanta.com</a>
+      </p>
+    ) : (
+      <p class="notice">The operator's registered name and address are being added.</p>
+    )}
+
+    <h2>Software</h2>
+    <p>
+      Osvanta Bus Log Analyzer is open-source software under the Mozilla Public License 2.0, which
+      provides it without warranty of any kind. See <a href="/licenses/">Licences</a>.
+    </p>
+
+    <h2>Website content</h2>
+    <p>
+      We take care that the information on this website is correct, but it is provided as general
+      information without any guarantee. The user guide describes the application as published;
+      where the two differ, please <a href="/contact/">tell us</a>.
+    </p>
+
+    <h2>External links</h2>
+    <p>
+      This website links to sites run by others, such as GitHub and YouTube. Their operators are
+      responsible for their content.
+    </p>
+
+    <h2>Names and trademarks</h2>
+    <p>
+      Names of third-party products, tools and file formats are used only for identification and
+      may be trademarks of their owners. Osvanta is not affiliated with, or endorsed by, those
+      owners.
+    </p>
+  </div>
+</Base>

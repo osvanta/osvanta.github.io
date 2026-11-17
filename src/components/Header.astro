@@ -1,0 +1,38 @@
+---
+import { PRODUCT, HELP, DOWNLOAD } from '../lib/site';
+
+const links = [
+  { href: PRODUCT, label: 'Bus Log Analyzer' },
+  { href: DOWNLOAD, label: 'Download' },
+  { href: HELP, label: 'Help' },
+  { href: '/contact/', label: 'Contact' },
+];
+const here = Astro.url.pathname;
+// The most specific link wins, so Help and Download are not also "Bus Log Analyzer".
+const current = links
+  .filter((l) => here.startsWith(l.href))
+  .sort((a, b) => b.href.length - a.href.length)[0]?.href;
+---
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/">
+      <img src="/mark.svg" alt="" width="32" height="32" />
+      <span>Osvanta</span>
+    </a>
+    <nav aria-label="Main">
+      {links.map((l) => (
+        <a href={l.href} aria-current={current === l.href ? 'page' : undefined}>{l.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  header { border-bottom: 1px solid var(--line); }
+  .bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1.5rem; padding-top: 0.75rem; padding-bottom: 0.75rem; }
+  .brand { display: flex; align-items: center; gap: 0.6rem; color: var(--text); text-decoration: none; font-size: 1.2rem; font-weight: 600; letter-spacing: 0.03em; }
+  nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+  nav a { color: var(--text-soft); text-decoration: none; padding: 0.25rem 0; }
+  nav a:hover, nav a[aria-current="page"] { color: var(--text); }
+  nav a[aria-current="page"] { box-shadow: 0 2px 0 var(--accent); }
+</style>

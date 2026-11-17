@@ -1,0 +1,22 @@
+---
+import { PRODUCT, FEATURES, DOWNLOAD, HELP } from '../lib/site';
+
+const links = [
+  { href: PRODUCT, label: 'Overview' },
+  { href: FEATURES, label: 'Features' },
+  { href: DOWNLOAD, label: 'Download' },
+  { href: HELP, label: 'Help' },
+];
+const here = Astro.url.pathname;
+const current = links
+  .filter((l) => here.startsWith(l.href))
+  .sort((a, b) => b.href.length - a.href.length)[0]?.href;
+---
+<div class="subnav">
+  <nav class="wrap bar" aria-label="Bus Log Analyzer">
+    <span class="name">Bus Log Analyzer</span>
+    {links.map((l) => (
+      <a href={l.href} aria-current={current === l.href ? 'page' : undefined}>{l.label}</a>
+    ))}
+  </nav>
+</div>

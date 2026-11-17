@@ -1,0 +1,37 @@
+---
+import Base from './Base.astro';
+import { HELP, helpTopics } from '../lib/site';
+
+// Layout of every help topic. A topic is a Markdown file whose frontmatter
+// names this layout and gives title, summary and order.
+const { frontmatter } = Astro.props;
+const here = Astro.url.pathname;
+const index = helpTopics.findIndex((t) => t.url === here);
+const previous = index > 0 ? helpTopics[index - 1] : undefined;
+const next = index >= 0 && index < helpTopics.length - 1 ? helpTopics[index + 1] : undefined;
+---
+<Base title={`${frontmatter.title} | Bus Log Analyzer help`} description={frontmatter.summary}>
+  <div class="help-layout">
+    <nav class="help-nav" aria-label="Help topics">
+      <h2><a href={HELP}>Help</a></h2>
+      <ol>
+        {helpTopics.map((t) => (
+          <li><a href={t.url} aria-current={t.url === here ? 'page' : undefined}>{t.title}</a></li>
+        ))}
+      </ol>
+    </nav>
+    <article class="prose">
+      <h1>{frontmatter.title}</h1>
+      <p class="lead">{frontmatter.summary}</p>
+      <slot />
+      <div class="pager">
+        {previous ? <a href={previous.url}>&larr; {previous.title}</a> : <span></span>}
+        {next ? <a href={next.url}>{next.title} &rarr;</a> : <span></span>}
+      </div>
+    </article>
+  </div>
+</Base>
+
+<style>
+  .help-nav h2 a { color: inherit; text-decoration: none; }
+</style>

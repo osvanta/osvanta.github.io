@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+const repo = 'https://github.com/osvanta/bus-log-analyzer';
+---
+<Base title="Contact" description="How to reach Osvanta: support email, questions, problem reports and security reports.">
+  <div class="prose">
+    <h1>Contact</h1>
+    <p class="lead">Email <a href="mailto:support@osvanta.com">support@osvanta.com</a>.</p>
+
+    <h2>Questions and ideas</h2>
+    <p>
+      Ask how to do something, or suggest an improvement, in
+      <a href={`${repo}/discussions`}>GitHub Discussions</a>. Others with the same question can
+      find the answer there.
+    </p>
+
+    <h2>Problems and feature requests</h2>
+    <p>
+      Report a problem or request a feature as a <a href={`${repo}/issues`}>GitHub issue</a>.
+      <strong>Help ▸ Open the log folder</strong> in the application opens the two log files that
+      help with a problem report. They name the files you opened, so check them before you send
+      them to anyone.
+    </p>
+
+    <h2>Security reports</h2>
+    <p>
+      Please report a security problem privately, as the
+      <a href={`${repo}/blob/main/SECURITY.md`}>security policy</a> describes, not in a public
+      issue.
+    </p>
+  </div>
+</Base>

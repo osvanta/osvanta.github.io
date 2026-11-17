@@ -1,0 +1,49 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import { RELEASES, REPO, GUIDE, HELP } from '../../../../lib/site';
+---
+<Base title="Download | Bus Log Analyzer" description="Download Osvanta Bus Log Analyzer for Windows: a portable ZIP, no installer needed.">
+  <div class="prose">
+    <h1>Download</h1>
+    <p class="lead">
+      Bus Log Analyzer is a portable Windows application. It is free, and there is no installer.
+    </p>
+    <div class="actions">
+      <a class="button primary" href={RELEASES}>Get the latest release on GitHub</a>
+    </div>
+
+    <h2>Install and run</h2>
+    <ol>
+      <li>On the release page, download the file ending in <code>_Windows.zip</code>.</li>
+      <li>Extract the ZIP to any folder you can write to. Administrator rights are not needed.</li>
+      <li>Run <code>BusLogAnalyzer.exe</code>.</li>
+    </ol>
+    <p>
+      The executable is not code-signed yet, so Windows SmartScreen shows a warning the first time
+      you start it. Choose <strong>More info</strong>, then <strong>Run anyway</strong>.
+    </p>
+
+    <h2>Check the download</h2>
+    <p>
+      Each release comes with a <code>SHA256SUMS.txt</code> file. In PowerShell, run
+      <code>Get-FileHash</code> on the downloaded ZIP; it must print the hash that file lists.
+      A software bill of materials (<code>sbom.cdx.json</code>, CycloneDX) lists every library the
+      release was built with.
+    </p>
+    <p>Download the application only from the GitHub release page.</p>
+
+    <h2>Next steps</h2>
+    <ul>
+      <li><a href={`${GUIDE}getting-started/`}>Getting started</a>: from a measurement file to your first plot in five minutes.</li>
+      <li><a href={HELP}>Help</a>: every part of the tool in detail.</li>
+      <li><a href={`${REPO}/releases`}>All releases</a> and what changed in each.</li>
+      <li><a href={REPO}>Source code</a>, to build it yourself.</li>
+    </ul>
+
+    <h2>Removing it</h2>
+    <p>
+      Delete the application's folder, and <code>%LOCALAPPDATA%\Osvanta\BusLogAnalyzer</code> for
+      its logs and settings. Nothing is written to the registry.
+    </p>
+  </div>
+</Base>

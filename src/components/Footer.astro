@@ -1,0 +1,24 @@
+---
+import { REPO, YOUTUBE } from '../lib/site';
+const year = new Date().getFullYear();
+---
+<footer>
+  <div class="wrap bar">
+    <span>&copy; {year} Osvanta</span>
+    <nav aria-label="Footer">
+      <a href="/privacy/">Privacy</a>
+      <a href="/legal/">Legal notice</a>
+      <a href="/licenses/">Licences</a>
+      <a href={REPO}>GitHub</a>
+      <a href={YOUTUBE}>YouTube</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  footer { border-top: 1px solid var(--line); color: var(--text-faint); font-size: 0.9rem; }
+  .bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-top: 1.25rem; padding-bottom: 1.25rem; }
+  nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+  a { color: var(--text-faint); text-decoration: none; }
+  a:hover { color: var(--text); }
+</style>

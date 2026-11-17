@@ -1,0 +1,78 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import plot from '../assets/plot-dark.webp';
+import { PRODUCT, DOWNLOAD, HELP, REPO, EMAIL } from '../lib/site';
+
+const principles = [
+  {
+    title: 'Your data stays with you',
+    text: 'Our software runs on your computer and opens no network connection of its own. No telemetry, no usage statistics, no account.',
+  },
+  {
+    title: 'Open source',
+    text: 'The source is public, so you and your security team can read exactly what the software does before you trust it with a measurement.',
+  },
+  {
+    title: 'Nothing to install',
+    text: 'A portable download that runs from any folder you can write to, without administrator rights.',
+  },
+];
+---
+<Base
+  title="Osvanta"
+  description="Osvanta makes software for engineers who work with vehicle measurement data. Its first product is Bus Log Analyzer, a free Windows tool for CAN and LIN measurements."
+>
+  <section class="hero">
+    <p class="eyebrow">Osvanta</p>
+    <h1>Software for engineers who work with vehicle data</h1>
+    <p class="lead">
+      Osvanta makes tools for reading, decoding and understanding automotive measurements. Our
+      first product is Bus Log Analyzer.
+    </p>
+  </section>
+
+  <section>
+    <h2>Products</h2>
+    <div class="product-card">
+      <div>
+        <h3>Bus Log Analyzer</h3>
+        <p>
+          A free Windows tool that loads CAN and LIN measurement files, decodes their signals with
+          DBC, ARXML or LDF databases, shows the raw frames, and plots the signals interactively.
+        </p>
+        <div class="actions">
+          <a class="button primary" href={PRODUCT}>About Bus Log Analyzer</a>
+          <a class="button" href={DOWNLOAD}>Download</a>
+          <a class="button" href={HELP}>Help</a>
+        </div>
+      </div>
+      <figure>
+        <Image src={plot} alt="Bus Log Analyzer plotting four signals of a demo drive" widths={[480, 800, 1200]} sizes="(max-width: 52rem) 100vw, 32rem" loading="eager" />
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>How we build</h2>
+    <ul class="cards">
+      {principles.map((p) => (
+        <li>
+          <h3>{p.title}</h3>
+          <p>{p.text}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2>Get in touch</h2>
+    <p>
+      Write to <a href={`mailto:${EMAIL}`}>{EMAIL}</a>, or join the conversation on
+      <a href={`${REPO}/discussions`}>GitHub Discussions</a>.
+    </p>
+    <div class="actions">
+      <a class="button" href="/contact/">Contact</a>
+    </div>
+  </section>
+</Base>

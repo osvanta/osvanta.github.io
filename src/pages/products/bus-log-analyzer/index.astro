@@ -1,0 +1,150 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import plot from '../../../assets/plot-dark.webp';
+import multiAxis from '../../../assets/readme-multi-axis-dark.webp';
+import trace from '../../../assets/readme-trace-dark.webp';
+import { DOWNLOAD, FEATURES, HELP, GUIDE, REPO, YOUTUBE } from '../../../lib/site';
+
+const highlights = [
+  {
+    title: 'Load large measurements',
+    text: 'Fast bulk loading and decoding, in memory that does not grow with the size of the file.',
+  },
+  {
+    title: 'Find signals quickly',
+    text: 'A searchable channel, message and signal tree with wildcards, multi-select plotting and drag-and-drop.',
+  },
+  {
+    title: 'Three plot modes, in tabs',
+    text: 'Stacked lanes, Multi-Axis overlay, or MultiStack lanes that each hold several signals.',
+  },
+  {
+    title: 'Cursors and statistics',
+    text: 'Two cursors with delta time, and Min, Max, Mean, Std dev and RMS over the visible range or between the cursors.',
+  },
+  {
+    title: 'Raw frame Trace',
+    text: 'Every CAN and LIN frame, with the time since the previous frame of the same ID and changed bytes highlighted.',
+  },
+  {
+    title: 'Calculated signals',
+    text: 'New signals from formulas: arithmetic, comparisons, logic and temporal operations.',
+  },
+  {
+    title: 'Export and convert',
+    text: 'Export plotted signals to CSV, Excel or MF4, and join, cut, resample and convert measurement files.',
+  },
+  {
+    title: 'Pick up where you left off',
+    text: 'Save a configuration of files, databases and plot layout, or reopen the last session at the next start.',
+  },
+];
+
+const formats = [
+  { name: 'BLF (.blf)', content: 'Raw CAN and LIN frames', database: 'DBC or ARXML for CAN, LDF for LIN' },
+  { name: 'ASC (.asc)', content: 'Raw CAN and LIN frames', database: 'DBC or ARXML for CAN, LDF for LIN' },
+  { name: 'TRC (.trc)', content: 'Raw CAN frames from PCAN trace files, versions 1.0 to 3.0', database: 'DBC or ARXML' },
+  { name: 'MDF4 / MDF3 (.mf4, .mdf)', content: 'Raw CAN or LIN bus logging, or decoded signals', database: 'Only for raw bus logging' },
+  { name: 'CSV (.csv)', content: 'Raw CAN export, or signals in narrow or wide layout', database: 'Only for raw CAN data' },
+];
+---
+<Base
+  title="Bus Log Analyzer"
+  description="Osvanta Bus Log Analyzer is a free Windows tool that loads automotive CAN and LIN measurement files, decodes signals with DBC, ARXML or LDF databases, and plots them."
+>
+  <section class="hero">
+    <p class="eyebrow">Free and open source for Windows</p>
+    <h1>Bus Log Analyzer</h1>
+    <p class="lead">
+      Load an automotive measurement, decode its CAN and LIN signals with your DBC, ARXML or LDF
+      databases, inspect the raw frames, and plot the signals interactively.
+    </p>
+    <div class="actions">
+      <a class="button primary" href={DOWNLOAD}>Download</a>
+      <a class="button" href={FEATURES}>All features</a>
+      <a class="button" href={HELP}>Help</a>
+    </div>
+    <figure>
+      <Image src={plot} alt="Four signals of a demo drive in Stacked mode, with both cursors on" widths={[640, 1024, 1800]} sizes="(max-width: 68rem) 100vw, 68rem" loading="eager" />
+      <figcaption>Stacked plot: every signal in its own lane. The screenshots show a made-up demo vehicle, not real data.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>What it does</h2>
+    <ul class="cards">
+      {highlights.map((f) => (
+        <li>
+          <h3>{f.title}</h3>
+          <p>{f.text}</p>
+        </li>
+      ))}
+    </ul>
+    <div class="actions">
+      <a class="button" href={FEATURES}>See all features</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>See the signals and the frames behind them</h2>
+    <figure>
+      <Image src={multiAxis} alt="The same four signals in Multi-Axis mode, one axis per unit" widths={[640, 1024, 1800]} sizes="(max-width: 68rem) 100vw, 68rem" />
+      <figcaption>Multi-Axis plot: the signals over each other, one axis per unit.</figcaption>
+    </figure>
+    <figure>
+      <Image src={trace} alt="The Trace window listing CAN and LIN frames with delta time and changed bytes" widths={[640, 1024, 1800]} sizes="(max-width: 68rem) 100vw, 68rem" />
+      <figcaption>Trace: the raw CAN and LIN frames, with the time since each ID's previous frame and its changed bytes highlighted.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Supported formats</h2>
+    <p>
+      MDF and CSV content is detected automatically. The Database Manager assigns a database to each
+      bus channel and shows how well it matches the frames on that channel.
+    </p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Measurement</th><th>Content</th><th>Database</th></tr>
+        </thead>
+        <tbody>
+          {formats.map((f) => (
+            <tr><td>{f.name}</td><td>{f.content}</td><td>{f.database}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Your measurements stay on your computer</h2>
+    <p>
+      The application opens no network connection of its own. It has no telemetry, no usage
+      statistics and no update checks, never changes the files you open, and runs without
+      administrator rights or an installer.
+    </p>
+    <p>
+      The source is public under MPL-2.0, and each release is built from it by GitHub Actions with
+      checksums and a software bill of materials.
+    </p>
+    <div class="actions">
+      <a class="button" href={`${GUIDE}security-and-data/`}>Security and data handling</a>
+      <a class="button" href={REPO}>Source on GitHub</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Learn it in a few minutes</h2>
+    <p>
+      Getting started takes you from a measurement file to your first plot in five minutes. The
+      help section covers every part of the tool in detail, and the tutorial videos show it in use.
+    </p>
+    <div class="actions">
+      <a class="button" href={`${GUIDE}getting-started/`}>Getting started</a>
+      <a class="button" href={HELP}>Help</a>
+      <a class="button" href={YOUTUBE}>Tutorial videos on YouTube</a>
+    </div>
+  </section>
+</Base>

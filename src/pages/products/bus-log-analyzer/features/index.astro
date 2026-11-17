@@ -1,0 +1,140 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import { DOWNLOAD, HELP } from '../../../../lib/site';
+
+const groups = [
+  {
+    title: 'Loading and decoding',
+    help: 'open-a-measurement',
+    items: [
+      'Fast bulk loading and decoding of BLF, ASC, TRC, MDF/MF4 and CSV measurements, in memory that does not grow with the file.',
+      'MDF and CSV content is detected automatically: raw bus logging or already-decoded signals.',
+      'File ▸ Measurement info: the format, size, start time and duration, and for MF4 the header, events and attachments.',
+    ],
+  },
+  {
+    title: 'Databases',
+    help: 'databases',
+    items: [
+      'DBC and ARXML databases for CAN, LDF for LIN, mixed freely.',
+      'A database per bus channel, with an all-channels fallback for each bus.',
+      'Match quality shows how well each database fits the frames on its channel.',
+      'Channel assignments can be saved and loaded again in one step.',
+    ],
+  },
+  {
+    title: 'Finding signals',
+    help: 'decode-and-find-signals',
+    items: [
+      'A tree of every channel, message and signal, searchable with * and ? wildcards.',
+      'Multi-select plotting, drag-and-drop, and collapse or expand of every message.',
+      'Signal properties from the database: message and ID, start bit, length, byte order, type, factor, offset, range, unit, multiplexing, value table and comment.',
+    ],
+  },
+  {
+    title: 'Plotting',
+    help: 'plotting',
+    items: [
+      'Stacked mode: each signal in its own lane and Y scale.',
+      'Multi-Axis mode: signals overlaid, one axis per unit and an optional axis per signal.',
+      'MultiStack mode: lanes that each hold several signals, with the signal table split to match.',
+      'Tabs of plots, each with its own signals and plot mode, synchronized in time range and cursors.',
+      'Table view: the plotted signals as a table, a row per sample time.',
+      'Step Mode or Interpolation Mode, data points, colours, line styles, groups, hide and reorder.',
+    ],
+  },
+  {
+    title: 'Cursors, zoom and statistics',
+    help: 'cursors-zoom-and-statistics',
+    items: [
+      'Two draggable cursors with values and delta time.',
+      'Rectangle Zoom, Fit to Window and Fit Vertical, and undo of the last plot actions.',
+      'Min, Max, Mean, Std dev, RMS and Samples, over the visible range or between the cursors.',
+      'Δ C2−C1 between the cursors, and Hex: the raw value on the bus, padded to the signal length.',
+    ],
+  },
+  {
+    title: 'Markers and events',
+    help: 'markers',
+    items: [
+      'Named markers on the plot: add, drag, rename, go to and delete.',
+      'Markers are saved in configurations and written into MF4 exports as events.',
+      'MF4 events of the measurement can be drawn on the plot.',
+    ],
+  },
+  {
+    title: 'Trace',
+    help: 'trace',
+    items: [
+      'An indexed list of every raw CAN and LIN frame, with filtering and on-demand signal decode.',
+      'Δt: the time since the previous frame with the same ID on the same channel.',
+      'Bytes that changed since that frame are highlighted.',
+      'Follow Cursor 1: the Trace and the plot move together, both ways.',
+    ],
+  },
+  {
+    title: 'Calculated signals',
+    help: 'calculated-signals',
+    items: [
+      'Formula-based signals with arithmetic, comparisons, logical expressions and temporal operations, and a stateful diagnostic counter.',
+      'Insert function lists every function by category, with how to use each.',
+      'Definitions are saved in configurations.',
+    ],
+  },
+  {
+    title: 'Export and conversion',
+    help: 'export-and-convert',
+    items: [
+      'Export plotted signals to CSV, Excel or MF4, on a selected signal\'s timestamps or a recurrence time you enter.',
+      'Save every decoded signal as MF4.',
+      'Convert files: join, cut and resample measurements, keep chosen signals, and convert between formats.',
+      'Signal selections can be saved by name, reused on other files, and shared as text files.',
+    ],
+  },
+  {
+    title: 'Sessions and configurations',
+    help: 'configurations-and-sessions',
+    items: [
+      'A configuration saves the measurement paths, database mapping, calculated signals, plotted signals, groups, colours, axes, cursors, markers and display settings.',
+      'Closing with unsaved changes asks whether to save them.',
+      'The next start offers to reopen the last session, even after a crash.',
+    ],
+  },
+  {
+    title: 'Security and support',
+    help: 'troubleshooting',
+    items: [
+      'No network connection of its own, no telemetry and no update checks.',
+      'Never changes the files you open; a damaged MF4 is repaired in a temporary copy.',
+      'Runs without an installer or administrator rights.',
+      'Two log files for problem reports, opened from the Help menu.',
+    ],
+  },
+];
+---
+<Base
+  title="Features | Bus Log Analyzer"
+  description="Everything Osvanta Bus Log Analyzer does: loading, databases, plotting, cursors and statistics, Trace, calculated signals, export and conversion."
+>
+  <h1>Features</h1>
+  <p class="lead">Everything Bus Log Analyzer does, by area. Each area links to its help topic.</p>
+
+  {groups.map((g) => (
+    <section>
+      <h2>{g.title}</h2>
+      <div class="prose">
+        <ul>
+          {g.items.map((i) => <li>{i}</li>)}
+        </ul>
+        <p><a href={`${HELP}${g.help}/`}>How to use it &rarr;</a></p>
+      </div>
+    </section>
+  ))}
+
+  <section>
+    <div class="actions">
+      <a class="button primary" href={DOWNLOAD}>Download</a>
+      <a class="button" href={HELP}>Help</a>
+    </div>
+  </section>
+</Base>

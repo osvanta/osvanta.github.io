@@ -1,0 +1,47 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import { helpTopics, GUIDE, YOUTUBE, REPO, EMAIL } from '../../../../lib/site';
+---
+<Base
+  title="Help | Bus Log Analyzer"
+  description="Help for Osvanta Bus Log Analyzer: every part of the tool explained, keyboard shortcuts, troubleshooting, and where to ask."
+>
+  <h1>Help</h1>
+  <p class="lead">
+    Every part of Bus Log Analyzer, explained step by step. New to the tool? Start with Getting
+    started, then come back for the details.
+  </p>
+  <div class="actions">
+    <a class="button primary" href={`${GUIDE}getting-started/`}>Getting started in five minutes</a>
+    <a class="button" href={YOUTUBE}>Tutorial videos on YouTube</a>
+  </div>
+
+  <section>
+    <h2>Topics</h2>
+    <ul class="topic-list">
+      {helpTopics.map((t) => (
+        <li>
+          <a href={t.url}>
+            <strong>{t.title}</strong>
+            <span>{t.summary}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2>Still stuck?</h2>
+    <div class="prose">
+      <ul>
+        <li>Ask a question in <a href={`${REPO}/discussions`}>GitHub Discussions</a>.</li>
+        <li>Report a problem or request a feature as a <a href={`${REPO}/issues`}>GitHub issue</a>.</li>
+        <li>Write to <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.</li>
+      </ul>
+      <p>
+        GitHub is public: do not attach measurements, databases or screenshots you are not allowed
+        to share.
+      </p>
+    </div>
+  </section>
+</Base>
