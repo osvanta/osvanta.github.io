@@ -13,6 +13,28 @@
   --font: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", sans-serif;
 }
 
+/* The site follows the visitor's computer: dark by default, light when the
+   computer asks for light. Screenshots come in pairs whose file names end in
+   -dark and -light; only the matching one is shown. */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --bg: #FFFFFF;
+    --bg-raised: #F2F6FA;
+    --line: #D3DEE9;
+    --text: #0D1B2A;
+    --text-soft: #3D5166;
+    --text-faint: #5A7089;
+    --accent: #1568C8;
+    --accent-strong: #1F7AE0;
+  }
+  .button.primary, .button.primary:hover { color: #FFFFFF; }
+  img[src*="-dark"] { display: none; }
+}
+@media not (prefers-color-scheme: light) {
+  img[src*="-light"] { display: none; }
+}
+
 *, *::before, *::after { box-sizing: border-box; }
 
 html { -webkit-text-size-adjust: 100%; }

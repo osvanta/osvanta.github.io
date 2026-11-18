@@ -8,6 +8,7 @@ order: 8
 The Trace lists the raw CAN and LIN frames of the measurement, in order. Use it when a signal looks wrong and you want to see the bytes behind it, or to check the timing of a message.
 
 ![The Trace window listing CAN and LIN frames with the time since the previous frame and changed bytes](../../../../assets/readme-trace-dark.webp)
+![The Trace window listing CAN and LIN frames with the time since the previous frame and changed bytes](../../../../assets/readme-trace-light.webp)
 
 ## Open the Trace
 

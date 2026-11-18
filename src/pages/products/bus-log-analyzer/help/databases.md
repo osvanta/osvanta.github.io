@@ -12,6 +12,7 @@ A raw bus log needs a database for each channel. The database says which frames 
 Click **Databases**. The Database Manager lists the channels it found in the measurement.
 
 ![The Database Manager with a database assigned to CAN 1 and a full match](../../../../assets/databases-dark.webp)
+![The Database Manager with a database assigned to CAN 1 and a full match](../../../../assets/databases-light.webp)
 
 1. Click **+ Add Database…** and choose your DBC, ARXML or LDF files.
 2. Under **Assigned to**, choose the channel each database belongs to.

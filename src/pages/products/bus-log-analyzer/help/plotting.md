@@ -28,6 +28,7 @@ The first buttons above the plot choose the mode.
 | **Table** | The plotted signals as a table beside the plot, a row per sample time | You want to read exact values |
 
 ![Four signals in Multi-Axis mode, one axis per unit](../../../../assets/readme-multi-axis-dark.webp)
+![Four signals in Multi-Axis mode, one axis per unit](../../../../assets/readme-multi-axis-light.webp)
 
 ### Working in MultiStack
 

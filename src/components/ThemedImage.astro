@@ -1,0 +1,17 @@
+---
+// A screenshot in both themes. global.css shows the one whose file name ends in
+// -light or -dark to match the visitor's computer; the hidden one is lazy, so
+// the browser never downloads it.
+import { Image } from 'astro:assets';
+
+interface Props {
+  dark: ImageMetadata;
+  light: ImageMetadata;
+  alt: string;
+  widths: number[];
+  sizes: string;
+}
+const { dark, light, alt, widths, sizes } = Astro.props;
+---
+<Image src={dark} alt={alt} widths={widths} sizes={sizes} />
+<Image src={light} alt={alt} widths={widths} sizes={sizes} />

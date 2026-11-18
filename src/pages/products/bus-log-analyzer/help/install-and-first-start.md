@@ -24,6 +24,7 @@ Each release comes with a `SHA256SUMS.txt` file. In PowerShell, run `Get-FileHas
 Everything starts from the row at the top of the window, read from left to right in the order of the work.
 
 ![The top row of the window, its eight items numbered](../../../../assets/top-row-dark.webp)
+![The top row of the window, its eight items numbered](../../../../assets/top-row-light.webp)
 
 | | Item | What it does |
 |---|---|---|

@@ -1,7 +1,8 @@
 ---
-import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import ThemedImage from '../components/ThemedImage.astro';
 import plot from '../assets/plot-dark.webp';
+import plotLight from '../assets/plot-light.webp';
 import { PRODUCT, DOWNLOAD, HELP, REPO, EMAIL } from '../lib/site';
 
 const principles = [
@@ -48,7 +49,7 @@ const principles = [
         </div>
       </div>
       <figure>
-        <Image src={plot} alt="Bus Log Analyzer plotting four signals of a demo drive" widths={[480, 800, 1200]} sizes="(max-width: 52rem) 100vw, 32rem" loading="eager" />
+        <ThemedImage dark={plot} light={plotLight} alt="Bus Log Analyzer plotting four signals of a demo drive" widths={[480, 800, 1200]} sizes="(max-width: 52rem) 100vw, 32rem" />
       </figure>
     </div>
   </section>

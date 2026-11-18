@@ -1,9 +1,12 @@
 ---
-import { Image } from 'astro:assets';
 import Base from '../../../layouts/Base.astro';
+import ThemedImage from '../../../components/ThemedImage.astro';
 import plot from '../../../assets/plot-dark.webp';
+import plotLight from '../../../assets/plot-light.webp';
 import multiAxis from '../../../assets/readme-multi-axis-dark.webp';
+import multiAxisLight from '../../../assets/readme-multi-axis-light.webp';
 import trace from '../../../assets/readme-trace-dark.webp';
+import traceLight from '../../../assets/readme-trace-light.webp';
 import { DOWNLOAD, FEATURES, HELP, GUIDE, REPO, YOUTUBE } from '../../../lib/site';
 
 const highlights = [
@@ -66,7 +69,7 @@ const formats = [
       <a class="button" href={HELP}>Help</a>
     </div>
     <figure>
-      <Image src={plot} alt="Four signals of a demo drive in Stacked mode, with both cursors on" widths={[640, 1024, 1800]} sizes="(max-width: 68rem) 100vw, 68rem" loading="eager" />
+      <ThemedImage dark={plot} light={plotLight} alt="Four signals of a demo drive in Stacked mode, with both cursors on" widths={[640, 1024, 1800]} sizes="(max-width: 68rem) 100vw, 68rem" />
       <figcaption>Stacked plot: every signal in its own lane. The screenshots show a made-up demo vehicle, not real data.</figcaption>
     </figure>
   </section>
@@ -89,11 +92,11 @@ const formats = [
   <section>
     <h2>See the signals and the frames behind them</h2>
     <figure>
-      <Image src={multiAxis} alt="The same four signals in Multi-Axis mode, one axis per unit" widths={[640, 1024, 1800]} sizes="(max-width: 68rem) 100vw, 68rem" />
+      <ThemedImage dark={multiAxis} light={multiAxisLight} alt="The same four signals in Multi-Axis mode, one axis per unit" widths={[640, 1024, 1800]} sizes="(max-width: 68rem) 100vw, 68rem" />
       <figcaption>Multi-Axis plot: the signals over each other, one axis per unit.</figcaption>
     </figure>
     <figure>
-      <Image src={trace} alt="The Trace window listing CAN and LIN frames with delta time and changed bytes" widths={[640, 1024, 1800]} sizes="(max-width: 68rem) 100vw, 68rem" />
+      <ThemedImage dark={trace} light={traceLight} alt="The Trace window listing CAN and LIN frames with delta time and changed bytes" widths={[640, 1024, 1800]} sizes="(max-width: 68rem) 100vw, 68rem" />
       <figcaption>Trace: the raw CAN and LIN frames, with the time since each ID's previous frame and its changed bytes highlighted.</figcaption>
     </figure>
   </section>

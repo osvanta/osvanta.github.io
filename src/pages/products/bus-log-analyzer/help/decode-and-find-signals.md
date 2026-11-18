@@ -12,6 +12,7 @@ Click **Decode** (`F9`). The status bar shows the progress, and the **Log** pane
 When it is done, the signal tree on the left lists every channel, message and signal.
 
 ![After Decode: the signal tree lists the channel, its messages and signals](../../../../assets/decoded-dark.webp)
+![After Decode: the signal tree lists the channel, its messages and signals](../../../../assets/decoded-light.webp)
 
 ## Search the tree
 
