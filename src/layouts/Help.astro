@@ -1,11 +1,12 @@
 ---
 import Base from './Base.astro';
-import { HELP, helpTopics } from '../lib/site';
+import { HELP, getHelpTopics } from '../lib/site';
 
 // Layout of every help topic. A topic is a Markdown file whose frontmatter
 // names this layout and gives title, summary and order.
 const { frontmatter } = Astro.props;
 const here = Astro.url.pathname;
+const helpTopics = getHelpTopics();
 const index = helpTopics.findIndex((t) => t.url === here);
 const previous = index > 0 ? helpTopics[index - 1] : undefined;
 const next = index >= 0 && index < helpTopics.length - 1 ? helpTopics[index + 1] : undefined;

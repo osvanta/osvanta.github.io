@@ -24,10 +24,14 @@ export interface HelpTopic {
 // title, the one-line summary and its place in the list.
 const files = import.meta.glob('../pages/products/bus-log-analyzer/help/*.md', { eager: true });
 
-export const helpTopics: HelpTopic[] = Object.entries(files)
-  .map(([path, mod]) => {
-    const fm = (mod as any).frontmatter;
-    const slug = path.split('/').pop()!.replace(/\.md$/, '');
-    return { title: fm.title, summary: fm.summary, order: fm.order, url: `${HELP}${slug}/` };
-  })
-  .sort((a, b) => a.order - b.order);
+// A function, not a constant: a topic imports its layout, which imports this
+// file, so the topics' frontmatter is not there yet while this file loads.
+export function getHelpTopics(): HelpTopic[] {
+  return Object.entries(files)
+    .map(([path, mod]) => {
+      const fm = (mod as any).frontmatter;
+      const slug = path.split('/').pop()!.replace(/\.md$/, '');
+      return { title: fm.title, summary: fm.summary, order: fm.order, url: `${HELP}${slug}/` };
+    })
+    .sort((a, b) => a.order - b.order);
+}

@@ -18,25 +18,38 @@ Plotted signals appear in the **signal table** beside the plot, with their value
 
 ## Plot modes
 
-The first buttons above the plot choose the mode.
+The first buttons above the plot choose the mode: **Multi-Axis**, **Stacked** and **MultiStack**, in that order. The same signals stay plotted when you switch, so you can look at them in each mode in turn.
 
-| Mode | What it shows | Use it when |
-|---|---|---|
-| **Stacked** (default) | Each signal in its own lane with its own Y scale | You want to compare shapes and timing |
-| **Multi-Axis** | The signals over each other, with one axis per unit and an optional axis per signal | You want to compare values on the same scale |
-| **MultiStack** | Lanes that each hold several signals | You want related signals together, and groups apart |
-| **Table** | The plotted signals as a table beside the plot, a row per sample time | You want to read exact values |
+### Multi-Axis
 
 ![Four signals in Multi-Axis mode, one axis per unit](../../../../assets/readme-multi-axis-dark.webp)
 ![Four signals in Multi-Axis mode, one axis per unit](../../../../assets/readme-multi-axis-light.webp)
 
-### Working in MultiStack
+All signals are drawn over each other in one plot area. Signals with the same unit share a Y axis, and a signal can be given an axis of its own. Use it to see how signals relate at the same moment, for example how engine speed follows the throttle.
+
+### Stacked
+
+![Four signals in Stacked mode, each in its own lane, with both cursors on](../../../../assets/plot-dark.webp)
+![Four signals in Stacked mode, each in its own lane, with both cursors on](../../../../assets/plot-light.webp)
+
+Each signal has its own lane with its own Y scale, one under the other on a shared time axis. This is the mode the tool starts in. Use it to compare shapes and timing without the signals covering each other.
+
+### MultiStack
+
+![Five signals in MultiStack mode: vehicle speed, engine speed, and three temperatures together in one lane](../../../../assets/multistack-dark.webp)
+![Five signals in MultiStack mode: vehicle speed, engine speed, and three temperatures together in one lane](../../../../assets/multistack-light.webp)
+
+Lanes like in Stacked, but each lane can hold several signals. Use it to keep related signals together, such as all temperatures in one lane, and unrelated ones apart.
 
 - Drag signals into a lane to overlay them there.
 - The signal table splits to match: each lane gets its own part of the table, level with it, listing only its signals.
 - Drag a signal from one part to another to move it to that lane, or within a part to change its order.
 - A part with more signals than fit scrolls on its own.
 - Signals of a lane whose signals are all unticked are listed under the last lane, so they can be ticked back on.
+
+### Table
+
+The **Table** button, next to the three modes, lists the plotted signals as a table beside the plot, with a row per sample time. Use it to read exact values.
 
 ## Tabs of plots
 

@@ -1,6 +1,6 @@
 ---
 import Base from '../../../../layouts/Base.astro';
-import { helpTopics, GUIDE, YOUTUBE, REPO, EMAIL } from '../../../../lib/site';
+import { getHelpTopics, GUIDE, YOUTUBE, REPO, EMAIL } from '../../../../lib/site';
 ---
 <Base
   title="Help | Bus Log Analyzer"
@@ -19,7 +19,7 @@ import { helpTopics, GUIDE, YOUTUBE, REPO, EMAIL } from '../../../../lib/site';
   <section>
     <h2>Topics</h2>
     <ul class="topic-list">
-      {helpTopics.map((t) => (
+      {getHelpTopics().map((t) => (
         <li>
           <a href={t.url}>
             <strong>{t.title}</strong>
