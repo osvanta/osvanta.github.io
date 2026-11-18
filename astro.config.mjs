@@ -11,5 +11,8 @@ export default defineConfig({
   // /download/ is a fixed address that shipped builds and documents may hold.
   redirects: {
     '/download/': '/products/bus-log-analyzer/download/',
+    // The first help topic was split in two; its address was already public.
+    '/products/bus-log-analyzer/help/install-and-first-start/':
+      '/products/bus-log-analyzer/help/download-and-start/',
   },
 });

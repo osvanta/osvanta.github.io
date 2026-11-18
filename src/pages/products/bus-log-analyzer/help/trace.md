@@ -2,7 +2,7 @@
 layout: ../../../../layouts/Help.astro
 title: Trace
 summary: Look at the raw CAN and LIN frames in order, with timing and changed bytes, linked to the plot.
-order: 8
+order: 9
 ---
 
 The Trace lists the raw CAN and LIN frames of the measurement, in order. Use it when a signal looks wrong and you want to see the bytes behind it, or to check the timing of a message.
@@ -11,6 +11,11 @@ The Trace lists the raw CAN and LIN frames of the measurement, in order. Use it 
 ![The Trace window listing CAN and LIN frames with the time since the previous frame and changed bytes](../../../../assets/readme-trace-light.webp)
 
 ## Open the Trace
+
+<video class="clip" autoplay loop muted playsinline preload="metadata" aria-label="Trace is clicked and the window lists the raw frames, then the pointer shows Follow Cursor 1">
+  <source src="/clips/trace-light.mp4" type="video/mp4" media="(prefers-color-scheme: light)">
+  <source src="/clips/trace-dark.mp4" type="video/mp4">
+</video>
 
 Click **Trace** (`Ctrl+Shift+R`). It is ready once a measurement has been decoded.
 

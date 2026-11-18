@@ -8,8 +8,10 @@ import { PRODUCT } from '../lib/site';
 interface Props {
   title: string;
   description: string;
+  // Help pages are wider, so their clips can be read.
+  wide?: boolean;
 }
-const { title, description } = Astro.props;
+const { title, description, wide } = Astro.props;
 const pageTitle = title === 'Osvanta' ? title : `${title} | Osvanta`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 // Every page under the product's address gets the product's own menu.
@@ -31,7 +33,7 @@ const inProduct = Astro.url.pathname.startsWith(PRODUCT);
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
   </head>
-  <body>
+  <body class={wide ? 'wide' : undefined}>
     <Header />
     {inProduct && <ProductNav />}
     <main>

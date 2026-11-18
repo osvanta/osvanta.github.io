@@ -11,7 +11,7 @@ const index = helpTopics.findIndex((t) => t.url === here);
 const previous = index > 0 ? helpTopics[index - 1] : undefined;
 const next = index >= 0 && index < helpTopics.length - 1 ? helpTopics[index + 1] : undefined;
 ---
-<Base title={`${frontmatter.title} | Bus Log Analyzer help`} description={frontmatter.summary}>
+<Base title={`${frontmatter.title} | Bus Log Analyzer help`} description={frontmatter.summary} wide>
   <div class="help-layout">
     <nav class="help-nav" aria-label="Help topics">
       <h2><a href={HELP}>Help</a></h2>
@@ -32,6 +32,23 @@ const next = index >= 0 && index < helpTopics.length - 1 ? helpTopics[index + 1]
     </article>
   </div>
 </Base>
+
+<script>
+  // The clips play like animated pictures. A click pauses or resumes one, and
+  // where the visitor asked for reduced motion they wait for a click.
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  for (const clip of document.querySelectorAll<HTMLVideoElement>('video.clip')) {
+    if (still) {
+      clip.removeAttribute('autoplay');
+      clip.pause();
+      clip.controls = true;
+    }
+    clip.addEventListener('click', () => {
+      if (clip.controls) return;
+      if (clip.paused) clip.play(); else clip.pause();
+    });
+  }
+</script>
 
 <style>
   .help-nav h2 a { color: inherit; text-decoration: none; }

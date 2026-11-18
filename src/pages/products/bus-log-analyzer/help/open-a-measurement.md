@@ -2,12 +2,19 @@
 layout: ../../../../layouts/Help.astro
 title: Open a measurement
 summary: Which files the application opens, what it finds in them, and how to see what a file holds.
-order: 2
+order: 3
 ---
 
 ## Open the file
 
 Click **Open Measurement** (`Ctrl+O`) and choose your file.
+
+<video class="clip" autoplay loop muted playsinline preload="metadata" aria-label="Open Measurement is clicked, a measurement file is chosen, and the status bar says what comes next">
+  <source src="/clips/open-light.mp4" type="video/mp4" media="(prefers-color-scheme: light)">
+  <source src="/clips/open-dark.mp4" type="video/mp4">
+</video>
+
+The clip shows the application's own file window; on your computer the usual Windows one opens.
 
 For a raw bus log, the application scans the file for its CAN and LIN channels, so that the Database Manager can show them in the next step.
 

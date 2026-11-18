@@ -130,6 +130,29 @@ td:first-child { color: var(--text); white-space: nowrap; }
 .product-card figure { margin: 0; }
 .product-card h3 { font-size: 1.4rem; }
 
+body.wide { --width: 84rem; }
+
+/* In a help topic the text keeps a readable width; clips and pictures use the
+   whole column. */
+.help-layout .prose { max-width: none; }
+.help-layout .prose > :where(p, ul, ol, h1, h2, h3, blockquote, table) { max-width: 46rem; }
+.help-layout .prose > p:has(> img) { max-width: none; }
+video.clip { display: block; width: 100%; height: auto; margin: 1rem 0 1.5rem; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-raised); cursor: pointer; }
+
+.filelist { margin: 1rem 0 1.5rem; max-width: 46rem; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--bg-raised); }
+.filelist .path { padding: 0.55rem 1rem; border-bottom: 1px solid var(--line); color: var(--text-faint); font-size: 0.9rem; }
+.filelist ul { list-style: none; margin: 0; padding: 0.35rem 0; }
+.filelist li { display: grid; grid-template-columns: 1.4rem minmax(9rem, 14rem) 1fr; gap: 0.75rem; align-items: baseline; margin: 0; padding: 0.4rem 1rem; color: var(--text-soft); }
+.filelist .name { color: var(--text); font-family: Consolas, "Cascadia Mono", monospace; font-size: 0.92rem; }
+.filelist .kind { width: 0.9rem; height: 1.1rem; border: 1.5px solid var(--text-faint); border-radius: 2px; align-self: center; }
+.filelist .kind.folder { height: 0.8rem; border-radius: 2px; border-top-width: 4px; }
+.filelist li.start { background: color-mix(in srgb, var(--accent) 14%, transparent); box-shadow: inset 3px 0 0 var(--accent); }
+.filelist li.start .name { font-weight: 700; }
+.filelist li.start .kind { border-color: var(--accent); animation: filelist-pulse 1.6s ease-in-out infinite; }
+@keyframes filelist-pulse { 50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 30%, transparent); } }
+@media (prefers-reduced-motion: reduce) { .filelist li.start .kind { animation: none; } }
+@media (max-width: 40rem) { .filelist li { grid-template-columns: 1.4rem 1fr; } .filelist li > span:last-child { grid-column: 2; } }
+
 .help-layout { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 3rem; align-items: start; }
 .help-nav { position: sticky; top: 1rem; font-size: 0.95rem; }
 .help-nav h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-faint); margin: 0 0 0.75rem; }

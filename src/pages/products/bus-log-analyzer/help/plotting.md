@@ -2,10 +2,15 @@
 layout: ../../../../layouts/Help.astro
 title: Plotting
 summary: Plot signals, choose a plot mode, work in tabs, and change how each signal looks.
-order: 5
+order: 6
 ---
 
 ## Plot a signal
+
+<video class="clip" autoplay loop muted playsinline preload="metadata" aria-label="A signal is double-clicked and appears in the plot, then two more are selected and plotted with Space">
+  <source src="/clips/plot-light.mp4" type="video/mp4" media="(prefers-color-scheme: light)">
+  <source src="/clips/plot-dark.mp4" type="video/mp4">
+</video>
 
 Plot a signal from the tree in any of these ways:
 
@@ -19,6 +24,11 @@ Plotted signals appear in the **signal table** beside the plot, with their value
 ## Plot modes
 
 The first buttons above the plot choose the mode: **Multi-Axis**, **Stacked** and **MultiStack**, in that order. The same signals stay plotted when you switch, so you can look at them in each mode in turn.
+
+<video class="clip" autoplay loop muted playsinline preload="metadata" aria-label="The three mode buttons are clicked in turn, and the same four signals are shown in Multi-Axis, Stacked and MultiStack">
+  <source src="/clips/modes-light.mp4" type="video/mp4" media="(prefers-color-scheme: light)">
+  <source src="/clips/modes-dark.mp4" type="video/mp4">
+</video>
 
 ### Multi-Axis
 

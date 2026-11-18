@@ -2,7 +2,7 @@
 layout: ../../../../layouts/Help.astro
 title: Troubleshooting
 summary: Answers to common problems, and what to put in a problem report.
-order: 13
+order: 14
 ---
 
 ## Common problems

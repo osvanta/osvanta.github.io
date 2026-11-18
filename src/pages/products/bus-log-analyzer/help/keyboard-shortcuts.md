@@ -2,7 +2,7 @@
 layout: ../../../../layouts/Help.astro
 title: Keyboard shortcuts
 summary: Every key, by area. Help ▸ Keyboard shortcuts shows the same list inside the application.
-order: 12
+order: 13
 ---
 
 **Help ▸ Keyboard shortcuts** (`Ctrl+/`) shows the same list inside the application.

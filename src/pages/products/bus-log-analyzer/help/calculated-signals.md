@@ -2,12 +2,17 @@
 layout: ../../../../layouts/Help.astro
 title: Calculated signals
 summary: Create new signals from formulas, with the full list of functions and operators.
-order: 9
+order: 10
 ---
 
 A calculated signal is a new signal worked out from others by a formula. Once created, it is plotted, measured and exported like any other signal.
 
 ## Create one
+
+<video class="clip" autoplay loop muted playsinline preload="metadata" aria-label="Calculated Signal is clicked, the signal is named, a measurement signal is added to the formula, the formula is finished, and the new signal appears in the tree">
+  <source src="/clips/calculated-light.mp4" type="video/mp4" media="(prefers-color-scheme: light)">
+  <source src="/clips/calculated-dark.mp4" type="video/mp4">
+</video>
 
 1. Click **Calculated Signal** in the top row.
 2. Give the signal a name and write its formula.

@@ -2,10 +2,15 @@
 layout: ../../../../layouts/Help.astro
 title: Decode and find signals
 summary: Decode the measurement, search the signal tree, and read what the database says about a signal.
-order: 4
+order: 5
 ---
 
 ## Decode
+
+<video class="clip" autoplay loop muted playsinline preload="metadata" aria-label="Decode is clicked, the signal tree fills, and typing in the search box narrows it to matching signals">
+  <source src="/clips/decode-light.mp4" type="video/mp4" media="(prefers-color-scheme: light)">
+  <source src="/clips/decode-dark.mp4" type="video/mp4">
+</video>
 
 Click **Decode** (`F9`). The status bar shows the progress, and the **Log** panel below the plot reports what was read, for example how many message groups were decoded.
 

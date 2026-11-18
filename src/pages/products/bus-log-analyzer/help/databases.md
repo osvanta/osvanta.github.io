@@ -2,7 +2,7 @@
 layout: ../../../../layouts/Help.astro
 title: Databases
 summary: Assign DBC, ARXML and LDF databases to the bus channels, and check that they fit.
-order: 3
+order: 4
 ---
 
 A raw bus log needs a database for each channel. The database says which frames carry which signals, and how to turn the bytes into values.
@@ -10,6 +10,11 @@ A raw bus log needs a database for each channel. The database says which frames 
 ## Assign databases to channels
 
 Click **Databases**. The Database Manager lists the channels it found in the measurement.
+
+<video class="clip" autoplay loop muted playsinline preload="metadata" aria-label="Databases is clicked, a database is added for CAN 1, its match quality appears, and OK closes the window">
+  <source src="/clips/databases-light.mp4" type="video/mp4" media="(prefers-color-scheme: light)">
+  <source src="/clips/databases-dark.mp4" type="video/mp4">
+</video>
 
 ![The Database Manager with a database assigned to CAN 1 and a full match](../../../../assets/databases-dark.webp)
 ![The Database Manager with a database assigned to CAN 1 and a full match](../../../../assets/databases-light.webp)

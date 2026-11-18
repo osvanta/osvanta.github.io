@@ -2,10 +2,15 @@
 layout: ../../../../layouts/Help.astro
 title: Cursors, zoom and statistics
 summary: Read values with the two cursors, zoom into a time range, and get statistics from the signal table.
-order: 6
+order: 7
 ---
 
 ## Cursors
+
+<video class="clip" autoplay loop muted playsinline preload="metadata" aria-label="Cursor 1 and Cursor 2 are placed on the plot, and the signal table shows each value and the difference">
+  <source src="/clips/cursors-light.mp4" type="video/mp4" media="(prefers-color-scheme: light)">
+  <source src="/clips/cursors-dark.mp4" type="video/mp4">
+</video>
 
 | Key or mouse | Action |
 |---|---|
@@ -19,6 +24,11 @@ The line under the plot shows both cursor times and the time between them. The s
 A cursor that is switched on always appears inside the visible window. Cursors are black on a light plot background and white on a dark one.
 
 ## Zoom and fit
+
+<video class="clip" autoplay loop muted playsinline preload="metadata" aria-label="Rectangle Zoom is switched on, a box is dragged over part of the plot to zoom into it, and Fit to Window shows the whole recording again">
+  <source src="/clips/zoom-light.mp4" type="video/mp4" media="(prefers-color-scheme: light)">
+  <source src="/clips/zoom-dark.mp4" type="video/mp4">
+</video>
 
 | Key or mouse | Action |
 |---|---|

@@ -2,12 +2,17 @@
 layout: ../../../../layouts/Help.astro
 title: Markers
 summary: Put named markers on the plot, jump between them, and keep them in configurations and MF4 exports.
-order: 7
+order: 8
 ---
 
 A marker is a named point in time on the plot. Use markers to remember where something happened, such as a fault, a gear change or the start of a test step.
 
 ## Add a marker
+
+<video class="clip" autoplay loop muted playsinline preload="metadata" aria-label="Cursor 1 is placed twice and a marker is added each time, then Delete Markers lists both markers">
+  <source src="/clips/markers-light.mp4" type="video/mp4" media="(prefers-color-scheme: light)">
+  <source src="/clips/markers-dark.mp4" type="video/mp4">
+</video>
 
 - Right-click the plot and choose **Add marker here**, or
 - press `M` to add one at Cursor 1.

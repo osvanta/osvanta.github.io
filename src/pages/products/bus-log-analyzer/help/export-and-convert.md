@@ -2,10 +2,15 @@
 layout: ../../../../layouts/Help.astro
 title: Export and convert
 summary: Export plotted signals to CSV, Excel or MF4, save a decoded measurement, and join, cut or convert files.
-order: 10
+order: 11
 ---
 
 ## Export the plotted signals
+
+<video class="clip" autoplay loop muted playsinline preload="metadata" aria-label="The File menu is opened and the pointer shows Export plotted signals and Save decoded measurement as MF4">
+  <source src="/clips/export-light.mp4" type="video/mp4" media="(prefers-color-scheme: light)">
+  <source src="/clips/export-dark.mp4" type="video/mp4">
+</video>
 
 **File ▸ Export plotted signals** (`Ctrl+E`) writes the signals you have plotted.
 
@@ -27,6 +32,11 @@ Plot only the signals you want before you export: the export contains the plotte
 **File ▸ Save decoded measurement as MF4** writes every decoded signal, not only the plotted ones. Use it to hand a decoded measurement to someone who has no database, or to open it again later without decoding.
 
 ## Convert files
+
+<video class="clip" autoplay loop muted playsinline preload="metadata" aria-label="Tools, Convert files is opened, and the pointer shows where to add files, cut a time range, resample and choose the output">
+  <source src="/clips/convert-light.mp4" type="video/mp4" media="(prefers-color-scheme: light)">
+  <source src="/clips/convert-dark.mp4" type="video/mp4">
+</video>
 
 **Tools ▸ Convert files** works on measurement files, whether one is open or not. It can:
 

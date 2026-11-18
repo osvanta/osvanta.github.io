@@ -2,10 +2,15 @@
 layout: ../../../../layouts/Help.astro
 title: Configurations and sessions
 summary: Save your work as a configuration, and reopen the last session at the next start.
-order: 11
+order: 12
 ---
 
 ## Save a configuration
+
+<video class="clip" autoplay loop muted playsinline preload="metadata" aria-label="The File menu is opened and the pointer shows Save configuration and Open configuration">
+  <source src="/clips/configuration-light.mp4" type="video/mp4" media="(prefers-color-scheme: light)">
+  <source src="/clips/configuration-dark.mp4" type="video/mp4">
+</video>
 
 **File ▸ Save configuration** (`Ctrl+S`) saves the session to a `.json` file. **File ▸ Open configuration** brings it all back.
 
