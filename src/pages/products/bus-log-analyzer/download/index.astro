@@ -1,6 +1,6 @@
 ---
 import Base from '../../../../layouts/Base.astro';
-import { RELEASES, REPO, GUIDE, HELP } from '../../../../lib/site';
+import { RELEASES, REPO, GETTING_STARTED, SECURITY, HELP } from '../../../../lib/site';
 ---
 <Base title="Download | Bus Log Analyzer" description="Download Osvanta Bus Log Analyzer for Windows: a portable ZIP, no installer needed.">
   <div class="prose">
@@ -34,7 +34,7 @@ import { RELEASES, REPO, GUIDE, HELP } from '../../../../lib/site';
 
     <h2>Next steps</h2>
     <ul>
-      <li><a href={`${GUIDE}getting-started/`}>Getting started</a>: from a measurement file to your first plot in five minutes.</li>
+      <li><a href={GETTING_STARTED}>Getting started</a>: from a measurement file to your first plot in five minutes.</li>
       <li><a href={HELP}>Help</a>: every part of the tool in detail.</li>
       <li><a href={`${REPO}/releases`}>All releases</a> and what changed in each.</li>
       <li><a href={REPO}>Source code</a>, to build it yourself.</li>

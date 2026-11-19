@@ -1,0 +1,44 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import { HELP, getHelpIndex } from '../../../../lib/site';
+
+// One group per first letter; anything that starts with a digit or a symbol
+// goes under "#".
+const groups = new Map<string, ReturnType<typeof getHelpIndex>>();
+for (const entry of getHelpIndex()) {
+  const first = entry.text[0].toUpperCase();
+  const letter = /[A-Z]/.test(first) ? first : '#';
+  if (!groups.has(letter)) groups.set(letter, []);
+  groups.get(letter)!.push(entry);
+}
+const letters = [...groups.keys()].sort();
+---
+<Base
+  title="Index | Bus Log Analyzer help"
+  description="An A to Z index of the Bus Log Analyzer help: every topic and section by name."
+  wide
+>
+  <p><a href={HELP}>&larr; Help</a></p>
+  <h1>Index A to Z</h1>
+  <p class="lead">Every help topic and section, by name.</p>
+
+  <nav class="az-letters" aria-label="Letters">
+    {letters.map((letter) => <a href={`#letter-${letter === '#' ? 'other' : letter}`}>{letter}</a>)}
+  </nav>
+
+  <div class="az">
+    {letters.map((letter) => (
+      <section id={`letter-${letter === '#' ? 'other' : letter}`}>
+        <h2>{letter}</h2>
+        <ul>
+          {groups.get(letter)!.map((entry) => (
+            <li>
+              <a href={entry.url}>{entry.text}</a>
+              {entry.topic && <span>{entry.topic}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</Base>

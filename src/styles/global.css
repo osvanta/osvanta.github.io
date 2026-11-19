@@ -180,3 +180,24 @@ video.clip { display: block; width: 100%; height: auto; margin: 1rem 0 1.5rem; b
 .topic-list a:hover { border-color: var(--accent); }
 .topic-list strong { display: block; color: var(--text); margin-bottom: 0.25rem; }
 .topic-list span { color: var(--text-soft); font-size: 0.95rem; }
+
+/* Help: the search field above the topic list, the search on the Help page
+   (drawn by pagefind, coloured here), and the A to Z index. */
+.help-search { margin: 0 0 0.9rem; }
+.help-search input { width: 100%; padding: 0.45rem 0.7rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-raised); color: var(--text); font: inherit; font-size: 0.95rem; }
+.help-search input::placeholder { color: var(--text-faint); }
+.help-index-link { margin: 0.9rem 0 0; padding-left: 0.6rem; font-size: 0.95rem; }
+.help-search-box { max-width: 46rem; margin-top: 1rem; color: var(--text-soft);
+  --pagefind-ui-scale: 0.85; --pagefind-ui-primary: var(--accent); --pagefind-ui-text: var(--text);
+  --pagefind-ui-background: var(--bg-raised); --pagefind-ui-border: var(--line); --pagefind-ui-tag: var(--bg-raised);
+  --pagefind-ui-border-width: 1px; --pagefind-ui-border-radius: 6px; --pagefind-ui-font: var(--font); }
+.help-search-box .pagefind-ui__result-excerpt, .help-search-box .pagefind-ui__message { color: var(--text-soft); }
+.help-search-box mark { background: color-mix(in srgb, var(--accent) 30%, transparent); color: var(--text); }
+.az-letters { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 1.5rem 0 0; }
+.az-letters a { min-width: 2rem; padding: 0.25rem 0.4rem; text-align: center; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-raised); text-decoration: none; font-weight: 600; }
+.az { columns: 20rem 3; column-gap: 2.5rem; margin-top: 1rem; }
+.az section { break-inside: avoid; margin-top: 1.5rem; }
+.az h2 { margin: 0 0 0.4rem; font-size: 1.2rem; color: var(--text-faint); border-bottom: 1px solid var(--line); padding-bottom: 0.2rem; }
+.az ul { list-style: none; margin: 0; padding: 0; }
+.az li { margin: 0.3rem 0; }
+.az li span { display: block; color: var(--text-faint); font-size: 0.85rem; }

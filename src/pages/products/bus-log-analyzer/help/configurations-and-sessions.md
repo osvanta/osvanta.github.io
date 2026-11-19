@@ -41,7 +41,7 @@ Whatever you answer when closing, the application keeps the session, and the nex
 | Configurations you save | Wherever you save them |
 | The last session and your preferences | `%LOCALAPPDATA%\Osvanta\BusLogAnalyzer` |
 
-These files hold the names of your measurement, databases and signals. Treat them as being as confidential as the measurement itself. See [Security and data handling](/bus-log-analyzer/security-and-data/) for the full list.
+These files hold the names of your measurement, databases and signals. Treat them as being as confidential as the measurement itself. See [Security and data handling](/products/bus-log-analyzer/help/security-and-data/) for the full list.
 
 ## Older versions
 

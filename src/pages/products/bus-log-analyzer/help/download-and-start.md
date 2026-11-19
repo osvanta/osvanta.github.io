@@ -58,7 +58,7 @@ Double-click `BusLogAnalyzer.exe`. Keep the folder together: the `.exe` does not
 - Temporary working files go to `%TEMP%` and are removed when the measurement is closed.
 - Configurations and exports go only where you save them.
 
-To keep the first folder somewhere else, set the environment variable `OSVANTA_DATA_DIR` to that folder. The full list of files is in [Security and data handling](/bus-log-analyzer/security-and-data/).
+To keep the first folder somewhere else, set the environment variable `OSVANTA_DATA_DIR` to that folder. The full list of files is in [Security and data handling](/products/bus-log-analyzer/help/security-and-data/).
 
 ## Updating and removing
 

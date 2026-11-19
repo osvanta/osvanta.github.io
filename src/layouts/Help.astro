@@ -1,6 +1,6 @@
 ---
 import Base from './Base.astro';
-import { HELP, getHelpTopics } from '../lib/site';
+import { HELP, HELP_INDEX, getHelpTopics } from '../lib/site';
 
 // Layout of every help topic. A topic is a Markdown file whose frontmatter
 // names this layout and gives title, summary and order.
@@ -15,17 +15,23 @@ const next = index >= 0 && index < helpTopics.length - 1 ? helpTopics[index + 1]
   <div class="help-layout">
     <nav class="help-nav" aria-label="Help topics">
       <h2><a href={HELP}>Help</a></h2>
+      <!-- The search itself is on the Help page, which this form opens. -->
+      <form class="help-search" action={HELP} method="get" role="search">
+        <input type="search" name="q" placeholder="Search Help" aria-label="Search Help" required />
+      </form>
       <ol>
         {helpTopics.map((t) => (
           <li><a href={t.url} aria-current={t.url === here ? 'page' : undefined}>{t.title}</a></li>
         ))}
       </ol>
+      <p class="help-index-link"><a href={HELP_INDEX}>Index A to Z</a></p>
     </nav>
-    <article class="prose">
+    <!-- data-pagefind-body: the search covers the help topics and nothing else. -->
+    <article class="prose" data-pagefind-body>
       <h1>{frontmatter.title}</h1>
       <p class="lead">{frontmatter.summary}</p>
       <slot />
-      <div class="pager">
+      <div class="pager" data-pagefind-ignore>
         {previous ? <a href={previous.url}>&larr; {previous.title}</a> : <span></span>}
         {next ? <a href={next.url}>{next.title} &rarr;</a> : <span></span>}
       </div>

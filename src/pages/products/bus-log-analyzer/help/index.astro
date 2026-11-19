@@ -1,6 +1,6 @@
 ---
 import Base from '../../../../layouts/Base.astro';
-import { getHelpTopics, GUIDE, YOUTUBE, REPO, EMAIL } from '../../../../lib/site';
+import { getHelpTopics, GETTING_STARTED, HELP_INDEX, YOUTUBE, REPO, EMAIL } from '../../../../lib/site';
 ---
 <Base
   title="Help | Bus Log Analyzer"
@@ -12,9 +12,18 @@ import { getHelpTopics, GUIDE, YOUTUBE, REPO, EMAIL } from '../../../../lib/site
     started, then come back for the details.
   </p>
   <div class="actions">
-    <a class="button primary" href={`${GUIDE}getting-started/`}>Getting started in five minutes</a>
+    <a class="button primary" href={GETTING_STARTED}>Getting started in five minutes</a>
+    <a class="button" href={HELP_INDEX}>Index A to Z</a>
     <a class="button" href={YOUTUBE}>Tutorial videos on YouTube</a>
   </div>
+
+  <section>
+    <h2>Search Help</h2>
+    <!-- Filled by the search tool the build adds (package.json: pagefind). It
+         runs in the browser on an index made at build time: no search service. -->
+    <div id="help-search" class="help-search-box"></div>
+    <noscript><p>The search needs JavaScript. The <a href={HELP_INDEX}>index</a> works without it.</p></noscript>
+  </section>
 
   <section>
     <h2>Topics</h2>
@@ -45,3 +54,34 @@ import { getHelpTopics, GUIDE, YOUTUBE, REPO, EMAIL } from '../../../../lib/site
     </div>
   </section>
 </Base>
+
+<script is:inline>
+  // The search files exist only in a built site, so `astro dev` shows a note.
+  (function () {
+    var box = document.getElementById('help-search');
+    var style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.href = '/pagefind/pagefind-ui.css';
+    document.head.appendChild(style);
+    var script = document.createElement('script');
+    script.src = '/pagefind/pagefind-ui.js';
+    script.onload = function () {
+      var ui = new PagefindUI({
+        element: '#help-search',
+        showSubResults: true,
+        showImages: false,
+        resetStyles: false,
+        translations: { placeholder: 'Search Help' },
+      });
+      var asked = new URLSearchParams(location.search).get('q');
+      if (asked) {
+        ui.triggerSearch(asked);
+        box.scrollIntoView({ block: 'center' });
+      }
+    };
+    script.onerror = function () {
+      box.textContent = 'The search is available on the published site.';
+    };
+    document.head.appendChild(script);
+  })();
+</script>
